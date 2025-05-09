@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Olive, Cream, Black color scheme */
+:root {
+  /* Cream base */
+  --background: 48 33% 94%;
+  --foreground: 20 10% 10%;
+  --muted: 48 20% 88%;
+  --muted-foreground: 48 10% 35%;
+  --popover: 48 33% 94%;
+  --popover-foreground: 20 10% 10%;
+  --card: 48 33% 96%;
+  --card-foreground: 20 10% 10%;
+  --border: 48 20% 80%;
+  --input: 48 20% 80%;
+  /* Olive primary */
+  --primary: 84 25% 35%;
+  --primary-foreground: 48 33% 94%;
+  /* Darker olive secondary */
+  --secondary: 84 30% 25%;
+  --secondary-foreground: 48 33% 94%;
+  /* Lighter olive accent */
+  --accent: 84 15% 80%;
+  --accent-foreground: 84 30% 25%;
+  --destructive: 0 65% 50%;
+  --destructive-foreground: 48 33% 94%;
+  --ring: 84 25% 35%;
+  --radius: 0.5rem;
+  
+  /* Custom colors for profile pages */
+  --olive-50: 84 30% 95%;
+  --olive-100: 84 25% 90%;
+  --olive-600: 84 25% 35%;
+  --olive-700: 84 30% 30%;
+  --olive-800: 84 32% 25%;
+  --olive-900: 84 32% 20%;
+  --cream-50: 48 33% 94%;
+  --cream-100: 48 33% 90%;
+  --neutral-850: 220 6% 12%;
+}
+
+.dark {
+  /* Black/dark olive base */
+  --background: 20 10% 10%;
+  --foreground: 48 33% 94%;
+  --muted: 20 10% 15%;
+  --muted-foreground: 48 20% 70%;
+  --popover: 20 10% 10%;
+  --popover-foreground: 48 33% 94%;
+  --card: 20 10% 12%;
+  --card-foreground: 48 33% 94%;
+  --border: 20 10% 20%;
+  --input: 20 10% 20%;
+  /* Lighter olive in dark mode */
+  --primary: 84 25% 45%;
+  --primary-foreground: 48 33% 94%;
+  /* Medium olive secondary */
+  --secondary: 84 20% 35%;
+  --secondary-foreground: 48 33% 94%;
+  /* Dark olive accent */
+  --accent: 84 15% 20%;
+  --accent-foreground: 48 20% 88%;
+  --destructive: 0 65% 40%;
+  --destructive-foreground: 48 33% 94%;
+  --ring: 84 25% 45%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* Global styles */
+body, html {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dark/Light mode styles */
+.dark-mode {
+  background-color: #1a1a14;
+  color: #f5f2e3;
+}
+
+.light-mode {
+  background-color: #f5f2e3;
+  color: #1a1a14;
+}
+
+/* Card flip animation */
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Form styles */
+.form-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Custom select styling */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23606060%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem top 50%;
+  background-size: 0.65rem auto;
+  padding-right: 2rem;
+}
+
+@media (min-width: 768px) {
+  .auth-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 450px;
+  margin-bottom: 30px;
+}
+
+.auth-hero {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .auth-form {
+    margin-bottom: 0;
+    margin-right: 30px;
+  }
+  
+  .auth-hero {
+    text-align: left;
+  }
+}

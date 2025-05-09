@@ -1,0 +1,51 @@
+# Dependencies
+node_modules
+/.pnp
+.pnp.js
+
+# Build outputs
+/dist
+/build
+/server/public
+
+# Ensure only one copy of client code is committed
+# Since we're using the public folder as the primary source
+# and client is a duplicate for compatibility
+/client/*
+!/client/index.html
+
+# IDE and Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vite
+vite.config.ts.*
+
+# Misc
+*.tar.gz
+coverage/
+.replit
+.cache/
+.local/
+.nix/
+.upm/
+.config/

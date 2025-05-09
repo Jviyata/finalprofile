@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Upload Test Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .required:after {
+            content: " *";
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Profile Upload Test Form</h1>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="name" class="required">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="John Doe" required>
+        </div>
+        
+        <div>
+            <label for="email" class="required">Email</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+        </div>
+        
+        <div>
+            <label for="title" class="required">Professional Title</label>
+            <select id="title" name="title" required>
+                <option value="" disabled selected>Select a professional title</option>
+                <option value="Software Engineer">Software Engineer</option>
+                <option value="UX/UI Designer">UX/UI Designer</option>
+                <option value="Data Scientist">Data Scientist</option>
+                <option value="Product Manager">Product Manager</option>
+                <option value="DevOps Engineer">DevOps Engineer</option>
+                <option value="Frontend Developer">Frontend Developer</option>
+                <option value="Full Stack Developer">Full Stack Developer</option>
+                <option value="Database Administrator">Database Administrator</option>
+                <option value="Systems Architect">Systems Architect</option>
+                <option value="QA Engineer">QA Engineer</option>
+                <option value="Cybersecurity Specialist">Cybersecurity Specialist</option>
+                <option value="Machine Learning Engineer">Machine Learning Engineer</option>
+            </select>
+        </div>
+        
+        <div>
+            <label for="bio" class="required">Professional Bio</label>
+            <textarea id="bio" name="bio" placeholder="Tell us about your professional background, skills, and experience..." required minlength="50"></textarea>
+            <small style="display: block; color: #666; margin-top: -10px; margin-bottom: 15px;">
+                Minimum 50 characters. Describe your professional background, skills, and experience.
+            </small>
+        </div>
+        
+        <div>
+            <label for="image" class="required">Profile Image</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+        </div>
+        
+        <div>
+            <input type="hidden" name="username" value="testuser">
+        </div>
+        
+        <button type="submit">Create Profile</button>
+    </form>
+</body>
+</html>
